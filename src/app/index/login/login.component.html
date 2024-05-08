@@ -1,0 +1,36 @@
+
+
+<div class="contenedorbig">
+  <div class="contenedor">
+    <h2>Iniciar Sesión</h2>
+
+    <form [formGroup]="loginFrom"> 
+      
+      <div class="input-field">
+        <div class="input-container">
+          <input formControlName="email" placeholder="Email" required>
+          <span class="fa fa-user"></span>
+        </div>
+      </div>
+      
+      <div class="input-field">
+        <div class="input-container">
+          <span  class="fa fa-lock"></span>
+          <input formControlName="password" placeholder="Contraseña" required>
+        </div>
+        <span  class="fa fa-eye-slash"></span>
+      </div>
+
+
+      <div class="asd2">
+        <a href="">Olvidaste tu contraseña?</a>
+      </div>
+
+      <button (click)="OnLogin()" type="submit" class="btn btn-secondary">Iniciar Sesión</button>
+      
+      <div class="text-center">No tienes cuenta?
+        <a routerLink="/registro">Registrate</a>
+      </div>
+    </form>
+  </div>
+</div>

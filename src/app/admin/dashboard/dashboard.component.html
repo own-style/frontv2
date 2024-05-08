@@ -1,0 +1,48 @@
+
+<mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()" >
+        
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    
+    Dashboard
+</mat-toolbar>
+   
+    <mat-sidenav-container>
+        <mat-sidenav>
+          <mat-nav-list>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" routerLink="index">
+                <mat-icon matListItemIcon>home</mat-icon>
+                Home
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('administradores')">
+                <mat-icon matListItemIcon>person</mat-icon>
+                Administradores
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('clientes')" >
+                <mat-icon matListItemIcon>person</mat-icon>
+                Clientes
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('productos')">
+                <mat-icon matListItemIcon>person</mat-icon>
+                Productos
+            </mat-list-item>
+            
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="content">
+
+                <div *ngIf="selectedOption === 'administradores'"> 
+                    <app-administradores></app-administradores>
+                  </div>
+                  <div *ngIf="selectedOption === 'clientes'"> 
+                    <app-clientes></app-clientes>
+                  </div>
+                  <div *ngIf="selectedOption === 'productos'">
+                    <app-productos></app-productos>
+                  </div>                           
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
