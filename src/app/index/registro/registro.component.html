@@ -1,0 +1,50 @@
+  <div class="contenedorbig">
+    <div class="contenedor">
+      <h2>Registrarse</h2>
+  
+      <form [formGroup]="registerForm"> 
+        
+        <div class="input-field">
+          <div class="input-container">
+            <input formControlName="firstName" placeholder="nombre" required>
+            <span class="fa fa-user"></span>
+          </div>
+        </div>
+        <div class="input-field">
+            <div class="input-container">
+              <input formControlName="lastName" placeholder="apellido" required>
+              <span class="fa fa-user"></span>
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="input-container">
+              <input formControlName="email" placeholder="email" required>
+              <span class="fa fa-user"></span>
+            </div>
+          </div>
+          <div class="input-field">
+            <div class="input-container">
+              <input formControlName="username" placeholder="username" required>
+              <span class="fa fa-user"></span>
+            </div>
+          </div>
+        
+        <div class="input-field">
+          <div class="input-container">
+            <span  class="fa fa-lock"></span>
+            <input formControlName="password" placeholder="password" required>
+          </div>
+          <span  class="fa fa-eye-slash"></span>
+        </div>
+  
+  
+  
+        <button (click)="OnSumbit()" type="submit" class="btn btn-secondary">Registrarse</button>
+        
+        <div class="text-center">Ya tienes una cuenta?
+          <a routerLink="/login">Inicia Sesion</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
