@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 import { AdministradoresComponent } from '../administradores/administradores.component';
 import { ClientesComponent } from '../clientes/clientes.component';
 import { ProductosComponent } from '../productos/productos.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -27,10 +28,7 @@ import { ProductosComponent } from '../productos/productos.component';
             CommonModule,
             AdministradoresComponent,
             ClientesComponent,
-            ProductosComponent,
-            
-            
-            
+            ProductosComponent,                                                
     ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
