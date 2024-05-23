@@ -1,1 +1,47 @@
-<p>administradores works!</p>
+<div class="container">
+    <button (click)="crear()" class="btn btn-primary" >Crear Administrador</button>
+  </div>
+  
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let administradores"> {{administradores.firstName}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td mat-cell *matCellDef="let Administrador"> {{Administrador.lastName}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let Administrador"> {{Administrador.username}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let Administrador"> {{Administrador.email}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let Administrador">
+          <button mat-icon-button (click)="editar()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="eliminar()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
