@@ -1,8 +1,7 @@
-export interface Administrador {
+export interface Administrador {    
     id?:number,
-    firstName:string,
-    lastName:string,
-    username:string,
+    nombre:string,
+    apellido:string,    
     email:string,
     password: string,
 }

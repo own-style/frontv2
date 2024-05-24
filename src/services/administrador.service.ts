@@ -20,8 +20,16 @@ export class AdministradorService {
     return this.http.get<Administrador[]>(this.baseUrl)
   }
 
-  createAdministradores(administrador: Administrador) {
-    return this.http.post<any>(this.baseUrl,administrador);
+  crear(administrador:Administrador):Observable<Administrador>{
+    return this.http.post<Administrador>(environment.apiUrl+"/administradores", administrador);
+  }
+  
+  editar(idAdministrador:number, administradorModificado:Administrador):Observable<Administrador>{
+    return this.http.put<Administrador>(`${this.baseUrl}/${idAdministrador}`, administradorModificado)
+  }
+
+  eliminar(id:number):Observable<void>{
+    return this.http.delete<void>(this.baseUrl+"/"+id)
   }
 
 }
