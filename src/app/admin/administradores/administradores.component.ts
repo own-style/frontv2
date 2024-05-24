@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class AdministradoresComponent implements OnInit{
   
-  displayedColumns: string[] = ['firstName', 'lastName', 'username', 'email','acciones'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'email','acciones'];
 
   dataSource = new MatTableDataSource<Administrador>();
   @ViewChild(MatPaginator)paginator!:MatPaginator;

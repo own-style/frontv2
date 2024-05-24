@@ -10,10 +10,12 @@ import { CuentasService } from '../../../services/cuentas.service';
   standalone: true,
   imports: [ReactiveFormsModule,
             RouterLink],
+
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })
 export class RegistroComponent implements OnInit{
+
 
   registerForm! : FormGroup;
   
@@ -77,7 +79,7 @@ export class RegistroComponent implements OnInit{
       password: this.registerForm.value.password
     };
 
-    this.cuentaService.signUp(userObj).subscribe({
+    this.cuentaService.registro(userObj).subscribe({
       next: (res) => {
         Swal.fire({
           icon: 'success',

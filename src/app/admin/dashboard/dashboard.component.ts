@@ -13,6 +13,7 @@ import { AdministradoresComponent } from '../administradores/administradores.com
 import { ClientesComponent } from '../clientes/clientes.component';
 import { ProductosComponent } from '../productos/productos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CuentasService } from '../../../services/cuentas.service';
 
 
 @Component({
@@ -34,29 +35,37 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit{
-@ViewChild(MatSidenav, {static: true})
-sidenav!:MatSidenav;
-selectedOption: string = '';
+  @ViewChild(MatSidenav, {static: true})
+  sidenav!:MatSidenav;
+  selectedOption: string = '';
+  
+  
+  constructor(
+    private observer : BreakpointObserver,
+    private cuentaService:CuentasService,
+  ){
+    
+  }
+  
+  selectOption(option: string) {
+    this.selectedOption = option;
+}
+cerrarSesion():void {
 
-
-constructor(private observer : BreakpointObserver){
-
+  this.cuentaService.cerrarSesion();
 }
 
-selectOption(option: string) {
-  this.selectedOption = option;
-}
-  ngOnInit(): void {
-    this.observer.observe(["(max-width: 800px)"])
-    .subscribe((res)=>{
-      if(res.matches)
-        {
-          this.sidenav.mode="over";
-          this.sidenav.close();
-        }else{
-          this.sidenav.mode = "side";
-          this.sidenav.open();
-        }
+ngOnInit(): void {
+  this.observer.observe(["(max-width: 800px)"])
+  .subscribe((res)=>{
+    if(res.matches)
+      {
+        this.sidenav.mode="over";
+        this.sidenav.close();
+      }else{
+        this.sidenav.mode = "side";
+        this.sidenav.open();
+      }
     })
   }
 }
