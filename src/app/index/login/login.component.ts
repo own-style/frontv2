@@ -42,51 +42,69 @@ export class LoginComponent implements OnInit{
   }
 
   OnLogin() {
-    if(this.loginForm.valid){
-    
-      const loginObj = {
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
 
-        email: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      };
-
-      this.cuentasService.signIn(loginObj).subscribe({
-        next: (res) => {
-          Swal.fire({
-            icon: 'success',
-            title: res.message,
-            timer: 1500
-          });
-          this.loginForm.reset();
-          this.cuentasService.storeToken(res.token);
-
-          if (res.userType === 'cliente') {
-            this.router.navigate(['/home']);
-          } else if (res.userType === 'admin') {
-            this.router.navigate(['/admin/dashboard']);
-          }
-          
-        },
-        error: (err) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: err.error.message // Mostrar el mensaje de error devuelto por el servidor
-          });
+    this.cuentasService.login(email,password).subscribe({
+      next:(res)=>{
+        if(res.esAdmin === true){
+          this.router.navigate(['admin']);
         }
-      });
-  
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Por favor complete todos los campos correctamente'
+        else{
+          this.router.navigate(['home']);
+        }
+      },
       
-      })
+      
+    })
 
-    }
-    
   }
+
+  // OnLogin() {
+  //   if(this.loginForm.valid){
+    
+  //     const loginObj = {
+
+  //       email: this.loginForm.value.email,
+  //       password: this.loginForm.value.password
+  //     };
+
+  //     this.cuentasService.login(loginObj).subscribe({
+  //       next: (res) => {
+  //         Swal.fire({
+  //           icon: 'success',
+  //           title: res.message,
+  //           timer: 1500
+  //         });
+  //         this.loginForm.reset();
+  //         this.cuentasService.storeToken(res.token);
+  //         if (this.cuentasService.login(loginObj)){
+  //           (sessionStorage.setItem("isLoggedIn", "true"))
+  //         }else{
+  //           sessionStorage.setItem("isLoggedIn", "false")
+  //         }
+                    
+  //       },
+  //       error: (err) => {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Error',
+  //           text: err.error.message // Mostrar el mensaje de error devuelto por el servidor
+  //         });
+  //       }
+  //     });
+  
+  //   } else {  
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Error',
+  //       text: 'Por favor complete todos los campos correctamente'
+      
+  //     })
+
+  //   }
+    
+  // }
 
 
 }

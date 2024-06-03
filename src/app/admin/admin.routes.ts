@@ -5,6 +5,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { AdministradoresComponent } from './administradores/administradores.component';
 import { NgModule } from '@angular/core';
 import { routes } from '../app.routes';
+import { authGuard } from '../guards/auth.guard';
 
 
 export const ADMIN_ROUTES: Routes = [
@@ -14,6 +15,8 @@ export const ADMIN_ROUTES: Routes = [
     {path:'administradores', component:AdministradoresComponent},
     {path:'clientes', component:ClientesComponent},
     {path:'productos', component:ProductosComponent},
+
+    
     
 ];
 
