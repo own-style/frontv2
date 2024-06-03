@@ -58,9 +58,6 @@ import { Credentials } from "../interfaces/credentials";
         }
 
 
-
-
-
     registro(userObj:any){
         return this.http.post<any>(`${this.baseUrl}registro`,userObj)
       }
