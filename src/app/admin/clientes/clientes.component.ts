@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -18,7 +18,7 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './clientes.component.html',
   styleUrl: './clientes.component.scss'
 })
-export class ClientesComponent {
+export class ClientesComponent implements OnInit{
 
 
   displayedColumns: string[] = ['nombre', 'apellido', 'email','acciones'];
@@ -31,6 +31,12 @@ export class ClientesComponent {
   constructor(){
 
   }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+
+  
 editar() {
 throw new Error('Method not implemented.');
 }
