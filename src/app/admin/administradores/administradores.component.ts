@@ -5,9 +5,7 @@ import { AdministradorService } from '../../../services/administrador.service';
 import { Administrador } from '../../../interfaces/administrador';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-administradores',
@@ -15,13 +13,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [  
             MatTableModule,
             MatIconModule, 
-            ReactiveFormsModule,
-            
-             
+            ReactiveFormsModule,                         
           ],
   templateUrl: './administradores.component.html',
   styleUrl: './administradores.component.scss'
 })
+
 export class AdministradoresComponent implements OnInit{
   
   displayedColumns: string[] = ['nombre', 'apellido', 'email','acciones'];
