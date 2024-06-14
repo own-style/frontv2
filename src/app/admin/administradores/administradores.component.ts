@@ -28,7 +28,7 @@ export class AdministradoresComponent implements OnInit{
   @ViewChild(MatSort)sort!:MatSort;
   
   
-  constructor(
+  constructor(    
     private administradorService: AdministradorService){      
       this.dataSource = new MatTableDataSource();      
     }
