@@ -6,6 +6,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Administrador } from '../../../interfaces/administrador';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ClienteService } from '../../../services/cliente.service';
 
 @Component({
   selector: 'app-clientes',
@@ -28,15 +29,27 @@ export class ClientesComponent implements OnInit{
   @ViewChild(MatSort)sort!:MatSort;
   
   
-  constructor(){
+  constructor(
+    private clientesService:ClienteService,
+  ){
 
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.get();
   }
 
 
-  
+  get():void{
+    this.clientesService.getClientes().subscribe({
+      next:(res)=>{
+        this.dataSource.data=res;
+      }
+    })
+    
+  }
+
+
+
 editar() {
 throw new Error('Method not implemented.');
 }

@@ -22,11 +22,4 @@ export class ClienteService {
   }
 
 
-
-
-
-
-
-
-
 }

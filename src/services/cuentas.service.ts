@@ -5,21 +5,12 @@ import jwt_decode, { JwtPayload } from "jwt-decode"; // Importa jwt_decode y Jwt
 import { BehaviorSubject, Observable, map } from "rxjs";
 import { Credentials } from "../interfaces/credentials";
 
-
-
-
-
-
 @Injectable ({
     providedIn: 'root'
   })
-
-
   export class CuentasService {
-      
-      
-    private baseUrl : string = "https://localhost:7282/api/Cuentas/"
-
+          
+  private baseUrl : string = "https://localhost:7282/api/Cuentas/"
 
   constructor( 
                private http:HttpClient,
@@ -50,33 +41,31 @@ import { Credentials } from "../interfaces/credentials";
           map((res)=>{
             this.datosCredentials.next(res);
             localStorage.setItem('credenciales',JSON.stringify(res))
-
             return res;
           })
-        )
-          
-        }
+        )          
+      }
 
 
-    registro(userObj:any){
+  registro(userObj:any){
         return this.http.post<any>(`${this.baseUrl}registro`,userObj)
       }
     
     
 
-    storeToken(tokenValue: string){
+  storeToken(tokenValue: string){
         localStorage.setItem('token', tokenValue)
       }
 
-    getToken(){
+  getToken(){
         return localStorage.getItem('token')
     }
 
-    isLoggedIn(): boolean{
+  isLoggedIn(): boolean{
       return !!localStorage.getItem('token')
     }
 
-    cerrarSesion(ruta:string = ''):void{
+  cerrarSesion(ruta:string = ''):void{
       this.setDatosCredentails = null;
       localStorage.removeItem('credenciales');
       this.router.navigate([ruta]);
