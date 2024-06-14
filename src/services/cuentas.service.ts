@@ -5,21 +5,12 @@ import jwt_decode, { JwtPayload } from "jwt-decode"; // Importa jwt_decode y Jwt
 import { BehaviorSubject, Observable, map } from "rxjs";
 import { Credentials } from "../interfaces/credentials";
 
-
-
-
-
-
 @Injectable ({
     providedIn: 'root'
   })
-
-
   export class CuentasService {
-      
-      
-    private baseUrl : string = "https://localhost:7282/api/Cuentas/"
-
+          
+  private baseUrl : string = "https://localhost:7282/api/Cuentas/"
 
   constructor( 
                private http:HttpClient,
