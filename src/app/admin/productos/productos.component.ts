@@ -4,9 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ProductosService } from '../../../services/productos.service';
-import { ProductoDTO } from '../../../interfaces/producto';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Producto } from '../../../interfaces/producto';
 
 @Component({
   selector: 'app-productos',
@@ -23,9 +24,12 @@ export class ProductosComponent implements OnInit {
   
   displayedColumns: string[] = ['nombre','precio','descripcion','imagen','acciones'];
   
-  dataSource = new MatTableDataSource<ProductoDTO>();
+  dataSource = new MatTableDataSource<Producto>();
   @ViewChild(MatPaginator)paginator!:MatPaginator;
   @ViewChild(MatSort)sort!:MatSort;
+
+
+  productos: Producto[] = [];
   
   constructor(private readonly productoService: ProductosService) 
   {    
