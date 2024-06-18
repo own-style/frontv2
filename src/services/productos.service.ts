@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { ProductoDTO } from '../interfaces/producto';
+import { Producto } from '../interfaces/producto';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ProductosService {
   ) { }
 
 
-  getProductos():Observable<ProductoDTO[]>{
-    return this.http.get<ProductoDTO[]>(this.baseUrl)
+  getProductos():Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.baseUrl)
   }
 }

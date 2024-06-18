@@ -1,0 +1,27 @@
+.contenedor-rectangulos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: gray;
+  }
+  
+  .rectangulo {
+    margin-top: 50px;
+    width: 450px;
+    height: auto;
+    background-color: antiquewhite;
+    border: 2px solid aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 60px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .rectangulo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
