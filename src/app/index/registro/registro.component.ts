@@ -16,10 +16,8 @@ import { CuentasService } from '../../../services/cuentas.service';
 })
 export class RegistroComponent implements OnInit{
 
-
   registerForm! : FormGroup;
   
-
   constructor(
     private form:FormBuilder,
     private cuentaService: CuentasService,
@@ -39,35 +37,6 @@ export class RegistroComponent implements OnInit{
     
   }
 
-  // onSubmit(): void {
-  //   if (this.registerForm.valid) {
-  //     this.cuentaService.signUp(this.registerForm.value).subscribe({
-  //       next: (res) => {
-  //         Swal.fire({
-  //           icon: 'success',
-  //           title: res.message,
-  //           timer: 1500
-  //         });
-  //         this.registerForm.reset();
-  //       },
-  //       error: (err) => {
-  //         Swal.fire({
-  //           icon: 'error',
-  //           title: 'Error',
-  //           text: err.error.message // Muestra el mensaje de error devuelto por el servidor
-  //         });
-  //       }
-  //     });
-  //   } else {
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Error',
-  //       text: 'Por favor complete todos los campos correctamente'
-  //     });
-  //   }
-  // }
-
-
   onSubmit(): void {
   if (this.registerForm.valid) {
     const userObj = {
@@ -78,7 +47,6 @@ export class RegistroComponent implements OnInit{
       email: this.registerForm.value.email,
       password: this.registerForm.value.password
     };
-
     this.cuentaService.registro(userObj).subscribe({
       next: (res) => {
         Swal.fire({
