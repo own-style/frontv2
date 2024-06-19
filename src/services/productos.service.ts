@@ -21,4 +21,7 @@ export class ProductosService {
   getProductos():Observable<Producto[]>{
     return this.http.get<Producto[]>(this.baseUrl)
   }
+  createProductos(producto:FormData):Observable<any>{
+    return this.http.post<Producto>(this.baseUrl, producto)
+  }
 }

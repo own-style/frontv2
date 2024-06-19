@@ -8,6 +8,8 @@ import { ProductosService } from '../../../services/productos.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Producto } from '../../../interfaces/producto';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CrearProductosComponent } from '../dialogs/crear-productos/crear-productos.component';
 
 @Component({
   selector: 'app-productos',
@@ -16,6 +18,7 @@ import { Producto } from '../../../interfaces/producto';
     MatIconModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.scss'
@@ -27,22 +30,28 @@ export class ProductosComponent implements OnInit {
   dataSource = new MatTableDataSource<Producto>();
   @ViewChild(MatPaginator)paginator!:MatPaginator;
   @ViewChild(MatSort)sort!:MatSort;
-
-
+  
+  
   productos: Producto[] = [];
   
-  constructor(private readonly productoService: ProductosService) 
+  constructor(private readonly productoService: ProductosService,
+    private dialog : MatDialog,
+  ) 
   {    
     this.dataSource = new MatTableDataSource();
   }
-  
-  
+    
   ngOnInit(): void {
     this.get();
   }
   ngAfterViewInit(): void {      
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;    
+  }
+  
+  openDialog() {
+  this.dialog.open(CrearProductosComponent,{    
+  });
   }
 
   get():void{
@@ -52,18 +61,14 @@ export class ProductosComponent implements OnInit {
       }
     })    
   }
-  crear() {
-  throw new Error('Method not implemented.');
-  }
+ 
   eliminar() {
   throw new Error('Method not implemented.');
   }
   editar() {
   throw new Error('Method not implemented.');
   }
-  mostrar(){
-    throw new Error('Method not implemented.');
-  }
+  
 
 
 }
