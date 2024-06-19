@@ -1,9 +1,8 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CuentasService } from '../../../services/cuentas.service';
-import Swal from 'sweetalert2';
+import { HeaderComponent } from '../header/header.component';
 
 
 
@@ -14,6 +13,7 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [ReactiveFormsModule,
             RouterLink,
+            HeaderComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit{
     private cuentasService: CuentasService,
     private router:Router,
     
-
   ){
 
   }
@@ -51,11 +50,9 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['admin']);
         }
         else{
-          this.router.navigate(['home']);
+          this.router.navigate(['']);
         }
-      },
-      
-      
+      },            
     })
 
   }
