@@ -4,12 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ProductosService } from '../../../services/productos.service';
-
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Producto } from '../../../interfaces/producto';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CrearProductosComponent } from '../dialogs/crear-productos/crear-productos.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -35,23 +35,26 @@ export class ProductosComponent implements OnInit {
   productos: Producto[] = [];
   
   constructor(private readonly productoService: ProductosService,
-    private dialog : MatDialog,
+              private dialog : MatDialog,
   ) 
   {    
-    this.dataSource = new MatTableDataSource();
+    this.dataSource = new MatTableDataSource();    
   }
     
   ngOnInit(): void {
     this.get();
   }
+
   ngAfterViewInit(): void {      
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;    
-  }
-  
-  openDialog() {
-  this.dialog.open(CrearProductosComponent,{    
-  });
+  }  
+
+  openCrearDialog(): void {
+    const dialogRef = this.dialog.open(CrearProductosComponent);
+    dialogRef.componentInstance.productoCreado.subscribe(() => {
+      this.get();
+    });
   }
 
   get():void{
@@ -62,13 +65,42 @@ export class ProductosComponent implements OnInit {
     })    
   }
  
-  eliminar() {
-  throw new Error('Method not implemented.');
+  eliminarProducto(id: number): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productoService.deleteProducto(id).subscribe({
+          next: () => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Producto eliminado',
+              timer: 1500,
+              text: '¡Producto eliminado con éxito!'
+            });
+            this.get(); // Recargar lista de productos o actualizar vista
+          },
+          error: (err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: err.error.message
+            });
+          }
+        });
+      }
+    });
   }
+
   editar() {
   throw new Error('Method not implemented.');
   }
-  
-
 
 }
