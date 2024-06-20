@@ -2,15 +2,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
     background-color: rgb(156, 156, 156);
   }
-  
   .rectangulo {
     margin-top: 50px;
     width: 450px;
     height: auto;
-    background-color: antiquewhite;
-    border: 2px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.1); /* Cambiado a rgba para permitir transparencia */
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,10 +18,14 @@
     margin: 60px;
     padding: 20px;
     text-align: center;
+    
   }
   
+
+  
+  
   .rectangulo img {
-    max-width: 100%;
+    max-width: 100%;    
     height: auto;
   }
   

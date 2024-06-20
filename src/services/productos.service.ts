@@ -24,4 +24,14 @@ export class ProductosService {
   createProductos(producto:FormData):Observable<any>{
     return this.http.post<Producto>(this.baseUrl, producto)
   }
+  deleteProducto(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+  getProductoById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+  updateProducto(id: number, producto: FormData): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, producto);
+  }
+  
 }

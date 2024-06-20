@@ -1,59 +1,70 @@
+.imglogo{
+  margin-top: 15px;
+  height: 300px; /* Ajusta el tamaño del div */
+  width: 600px;  /* Ajusta el tamaño del div */
+  background-position: center;
+  background-size: contain; /* Asegura que la imagen se ajuste dentro del div */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-image: url('logoownstyle2.png');
+  filter: drop-shadow(0px 7px 21px #fff0);
+  animation: rotar 7s linear infinite;
+  
+}
+
 header {
-
     
-    .navbar {
-
-      height: 100px;
-      display: flex;
-      background-color:pink;
-      
-      justify-content: space-between;
-      align-items: center;
-      
-            
-    }
-  
-    h1 {
-      margin: 0;
-      font-size: 70px;
-    }
-    .icons{
-
-      display: flex;
-      justify-content: space-between;
-
-      margin-right: 30px;
-
-      
-
-      
-      .mat-icon{
-
-        margin-right: 60px;
-        margin: 10px;
-      }
-    }
+  .navbar {
     
-  
-    .itemsNav {
-      
+    height: 120px;
     display: flex;
-      list-style: none;
-      
-      
-      
-      
-      
+    background-color: whitesmoke;
+    
+    justify-content: space-between;
+    align-items: center;
+        
+  }
   
-      li {
+  h1 {
+    margin: 0;
+    font-size: 70px;
+  }
+  .icons{    
+    display: flex;
+    justify-content: space-between;    
+    margin-right: 30px;            
+    
+    .mat-icon{
+      
+      margin-right: 60px;
+      margin: 10px;
+    }
+  }
+    
+  .itemsNav {
+    
+    display: flex;
+    list-style: none;                        
+    li {
         font-size: 20px;
         margin-right: 50px;
         cursor: pointer;
-  
+        
         &:last-child {
           margin-right: 0;
         }
       }
+    }
+    
+    
+  }
+  
+  @keyframes rotar{
+    from{
+      transform: rotateY(-180deg);
+    }
+    to{
+      transform: rotateY(180deg);
+  
     }
   }
   

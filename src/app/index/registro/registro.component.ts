@@ -4,12 +4,16 @@ import { RouterLink } from '@angular/router';
 
 import Swal from 'sweetalert2';
 import { CuentasService } from '../../../services/cuentas.service';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
   imports: [ReactiveFormsModule,
-            RouterLink],
+            RouterLink,
+            HeaderComponent,
+          FooterComponent],
 
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
