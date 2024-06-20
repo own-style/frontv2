@@ -1,0 +1,39 @@
+<mat-dialog-content>
+    <div class="contenedor">
+      <h2 class="titulo">PRODUCTO</h2>
+    <form [formGroup]="editarProductoForm">
+      <div class="input-field">
+        <div class="input-container">
+          <input class="input" formControlName="nombre" placeholder="Nombre" required>
+        </div>
+      </div>
+      <div class="input-field">
+        <div class="input-container">
+          <input class="input" formControlName="descripcion" placeholder="Descripcion" required>
+        </div>
+      </div>
+      <div class="input-field">
+        <div class="input-container">
+          <input class="input" formControlName="precio" placeholder="Precio" required>
+        </div>
+      </div>
+      <div class="input-field">
+        <div class="input-container">
+          <input class="input" type="file" (change)="onFileSelected($event)" required>
+        </div>
+      </div>    
+    </form>  
+  </div>
+  <mat-dialog-actions class="actions">
+    <button type="submit" (click)="editar()" class="btn">EDITAR</button>
+    <button type="button" (click)="cancelar()" class="btn">CANCELAR</button>
+  </mat-dialog-actions>
+  </mat-dialog-content>
+  
+  
+  
+  
+  
+  
+  
+  
