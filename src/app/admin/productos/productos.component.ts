@@ -10,6 +10,7 @@ import { Producto } from '../../../interfaces/producto';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CrearProductosComponent } from '../dialogs/crear-productos/crear-productos.component';
 import Swal from 'sweetalert2';
+import { EditarProductosComponent } from '../dialogs/editar-productos/editar-productos.component';
 
 @Component({
   selector: 'app-productos',
@@ -35,7 +36,7 @@ export class ProductosComponent implements OnInit {
   productos: Producto[] = [];
   
   constructor(private readonly productoService: ProductosService,
-              private dialog : MatDialog,
+              private dialog : MatDialog,              
   ) 
   {    
     this.dataSource = new MatTableDataSource();    
@@ -64,12 +65,24 @@ export class ProductosComponent implements OnInit {
       }
     })    
   }
+
+  editarProducto(id: number): void {
+    const dialogRef = this.dialog.open(EditarProductosComponent, {
+      data: { id: id }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.get(); // Vuelve a cargar la lista de productos
+      }
+    })
+  }
  
   eliminarProducto(id: number): void {
     Swal.fire({
       title: '¿Estás seguro?',
       text: '¡No podrás revertir esto!',
-      icon: 'warning',
+      icon: 'error',      
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
