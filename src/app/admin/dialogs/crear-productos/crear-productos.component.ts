@@ -25,7 +25,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 export class CrearProductosComponent implements OnInit {
 
   @Output() productoCreado = new EventEmitter<void>();
-
   
   readonly dialog = inject(MatDialog);
   selectedFile: File | null = null;  
