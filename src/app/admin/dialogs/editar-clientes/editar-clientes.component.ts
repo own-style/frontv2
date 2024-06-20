@@ -26,24 +26,22 @@ export class EditarClientesComponent implements OnInit{
   
   ngOnInit(): void {
     this.editarCliente = this.form.group({
-      firstName: ['',Validators.required],
-      lastName: ['',Validators.required],
+      nombre: ['',Validators.required],
+      apellido: ['',Validators.required],
       dni: ['',Validators.required],
       telefono: ['',Validators.required],
       direccion:['',Validators.required],
-      email: ['',Validators.required],
-      username: ['',Validators.required],
+      email: ['',Validators.required],      
       password: ['',Validators.required]          
     })
     this.scliente.getClienteById(this.data.id).subscribe(cliente =>{
       this.editarCliente.patchValue({
-        firstName: cliente.firstName,
-        lastName: cliente.lastName,
+        nombre: cliente.nombre,
+        apellido: cliente.apellido,
         dni: cliente.dni,
         telefono: cliente.telefono,
         direccion: cliente.direccion,
-        email: cliente.email,
-        username: cliente.username,
+        email: cliente.email,        
         password: cliente.password,
       });
     });    
@@ -51,39 +49,46 @@ export class EditarClientesComponent implements OnInit{
   cancelar() {
   this.mat.close();
   }
-
-  editar(): void {
+  
+  editarClientes(): void {
     if (this.editarCliente.valid) {
-      const formData = new FormData();
-      formData.append('nombre', this.editarCliente.get('nombre')!.value);
-      formData.append('descripcion', this.editarCliente.get('descripcion')!.value);
-      formData.append('precio', this.editarCliente.get('precio')!.value);
-     
-      this.scliente.updateCliente(this.data.id, formData).subscribe({
-        next: (res) => {
+      const formValue = this.editarCliente.value;
+      const clienteModificado: cliente = {
+        nombre: formValue.nombre,
+        apellido: formValue.apellido,
+        dni: formValue.dni,
+        direccion: formValue.direccion,
+        email: formValue.email,
+        telefono: formValue.telefono,
+        password: formValue.password,
+      };
+  
+      this.scliente.updateCliente(this.data.id!, clienteModificado).subscribe({
+        next: () => {
           Swal.fire({
+            position: 'center',
             icon: 'success',
-            title: 'Producto editado',
-            timer: 1500,
-            text: '¡Producto editado con éxito!'
+            title: 'Modificación Exitosa',
+            showConfirmButton: false,
+            timer: 3000
           });
           this.mat.close(true);
         },
-        error: (err) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: err.error.message
-          });
+        error: () => {
+          Swal.fire(
+            'Error',
+            'No se pudo editar el cliente.',
+            'error'
+          );
         }
       });
     } else {
       Swal.fire({
-        icon: 'error',        
+        icon: 'error',
         title: 'Error',
         text: 'Por favor complete todos los campos correctamente'
       });
     }
   }
-
+  
 }

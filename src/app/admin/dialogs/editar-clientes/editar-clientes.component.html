@@ -4,12 +4,12 @@
     <form [formGroup]="editarCliente">
       <div class="input-field">
         <div class="input-container">
-          <input class="input" formControlName="firstName" placeholder="Nombre" required>
+          <input class="input" formControlName="nombre" placeholder="Nombre" required>
         </div>
       </div>
       <div class="input-field">
         <div class="input-container">
-          <input class="input" formControlName="lastName" placeholder="Apellido" required>
+          <input class="input" formControlName="apellido" placeholder="Apellido" required>
         </div>
       </div>
       <div class="input-field">
@@ -32,11 +32,7 @@
           <input class="input" formControlName="email" placeholder="Email" required>
         </div>
       </div> 
-      <div class="input-field">
-        <div class="input-container">
-          <input class="input" formControlName="username" placeholder="Username" required>
-        </div>
-      </div>
+   
       <div class="input-field">
         <div class="input-container">
           <input class="input" formControlName="password" placeholder="Password" required>
@@ -45,7 +41,7 @@
     </form>  
   </div>
   <mat-dialog-actions>
-    <button type="submit" (click)="editar()" class="btn">CREAR</button>
+    <button type="submit" (click)="editarClientes()" class="btn">EDITAR</button>
     <button type="button" (click)="cancelar()" class="btn">CANCELAR</button>
   </mat-dialog-actions>
   </mat-dialog-content>
