@@ -69,11 +69,10 @@ export class ProductosComponent implements OnInit {
   editarProducto(id: number): void {
     const dialogRef = this.dialog.open(EditarProductosComponent, {
       data: { id: id }
-    });
-  
+    });  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.get(); // Vuelve a cargar la lista de productos
+        this.get(); 
       }
     })
   }
@@ -110,10 +109,5 @@ export class ProductosComponent implements OnInit {
         });
       }
     });
-  }
-
-  editar() {
-  throw new Error('Method not implemented.');
-  }
-
+  } 
 }

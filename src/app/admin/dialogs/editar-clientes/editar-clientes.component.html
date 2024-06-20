@@ -1,7 +1,7 @@
 <mat-dialog-content>
     <div class="contenedor">
       <h2 class="titulo">CLIENTE</h2>
-    <form [formGroup]="crearClienteForm">
+    <form [formGroup]="editarCliente">
       <div class="input-field">
         <div class="input-container">
           <input class="input" formControlName="firstName" placeholder="Nombre" required>
@@ -45,7 +45,7 @@
     </form>  
   </div>
   <mat-dialog-actions>
-    <button type="submit" (click)="crear()" class="btn">CREAR</button>
+    <button type="submit" (click)="editar()" class="btn">CREAR</button>
     <button type="button" (click)="cancelar()" class="btn">CANCELAR</button>
   </mat-dialog-actions>
   </mat-dialog-content>
@@ -57,3 +57,4 @@
   
   
   
+
