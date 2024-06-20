@@ -24,9 +24,10 @@ export class ClienteService {
   deleteClients(id:number):Observable<any>{
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
-  updateCliente(id: number, cliente: FormData): Observable<any> {
+  updateCliente(id: number, cliente: cliente): Observable<any> {
     return this.http.put(`${this.baseUrl}/${id}`, cliente);
   }
+  
 
 
 }
