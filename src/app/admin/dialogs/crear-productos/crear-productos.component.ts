@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, 
          FormGroup, 
          ReactiveFormsModule,   
@@ -23,12 +23,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './crear-productos.component.scss'
 })
 export class CrearProductosComponent implements OnInit {
+
+  @Output() productoCreado = new EventEmitter<void>();
+
   
   readonly dialog = inject(MatDialog);
   selectedFile: File | null = null;  
   crearProductoForm! : FormGroup;
   
-  constructor(private form: FormBuilder,private sproducto: ProductosService,
+  constructor(private form: FormBuilder,
+              private sproducto: ProductosService,
     private mat: MatDialogRef<CrearProductosComponent>
   ) {
     
@@ -40,7 +44,7 @@ export class CrearProductosComponent implements OnInit {
       precio: ['',Validators.required],      
     })        
   }
-  
+
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -76,6 +80,9 @@ export class CrearProductosComponent implements OnInit {
           });
           this.crearProductoForm.reset();
           this.selectedFile = null; // Reset the selected file
+          this.productoCreado.emit(); // Emit the event to inform that a product was created
+          this.mat.close();
+                    
         },
         error: (err) => {
           Swal.fire({

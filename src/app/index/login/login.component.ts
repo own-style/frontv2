@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { CuentasService } from '../../../services/cuentas.service';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 
 
@@ -13,7 +14,8 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   imports: [ReactiveFormsModule,
             RouterLink,
-            HeaderComponent
+            HeaderComponent,
+            FooterComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

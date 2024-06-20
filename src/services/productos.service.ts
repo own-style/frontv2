@@ -24,4 +24,7 @@ export class ProductosService {
   createProductos(producto:FormData):Observable<any>{
     return this.http.post<Producto>(this.baseUrl, producto)
   }
+  deleteProducto(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }
