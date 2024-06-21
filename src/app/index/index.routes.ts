@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 import { NgModule } from '@angular/core';
 import { routes } from '../app.routes';
+import { CarritoIndexComponent } from './carrito-index/carrito-index.component';
 
 
 
@@ -11,6 +12,7 @@ export const INDEX_ROUTES: Routes = [
 
     
     {path: '', component: IndexComponent},
+    {path: 'carrito', component: CarritoIndexComponent,},
     {path: 'login', component: LoginComponent,},
     {path: 'registro', component: RegistroComponent,},
     

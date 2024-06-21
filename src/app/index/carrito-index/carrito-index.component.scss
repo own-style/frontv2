@@ -1,0 +1,100 @@
+.background{
+  background-color: #333;
+}
+.tittle{
+  margin-top: 20px;
+}
+.under-card{
+  display: flex;  
+  align-items: center;
+  padding: 20px;  
+  gap: 5em;
+}
+.under-card .buttonpagar{
+  
+      padding: 25px 25px;
+      background-color: purple;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;  
+      &:hover {
+        background-color: rgb(175, 5, 175);
+      }
+    
+
+}
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .card{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .cart-item {
+    
+    text-align: center;
+    display: flex;
+    align-items: center;    
+    padding: 10px;
+    height: 250px;
+    max-width: 400px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1); 
+  
+    img {
+      margin-right: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    div {
+      flex-grow: 1;
+  
+      h3 {
+        margin: 0 0 5px;
+        font-size: 1.2em;
+        color: #333;
+      }
+  
+      p {
+        margin: 0;
+        color: #666;
+      }
+    }
+  
+    button {
+      display: flex;          
+      padding: 10px 10px;
+      background-color: gray  ;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: purple;
+      }
+    }
+  }
+  
+  h3 {
+    text-align: right;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  .empty-cart-message {
+    height: 500px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 3em;
+    color: #666;
+  }
