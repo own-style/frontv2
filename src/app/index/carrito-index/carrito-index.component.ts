@@ -4,13 +4,15 @@ import { CartService } from '../../../services/carrito.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-carrito-index',
   standalone: true,
   imports: [CommonModule,
             HeaderComponent,
-            FooterComponent
+            FooterComponent,
+            SliderComponent
   ],
   templateUrl: './carrito-index.component.html',
   styleUrl: './carrito-index.component.scss'

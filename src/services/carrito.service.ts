@@ -6,25 +6,37 @@ import { Producto } from '../interfaces/producto';
   providedIn: 'root'
 })
 export class CartService {
-  private cart = new BehaviorSubject<Producto[]>([]);
+  private cart = new BehaviorSubject<Producto[]>(this.getCartFromLocalStorage());
   cart$ = this.cart.asObservable();
 
   constructor() {}
+
+  private getCartFromLocalStorage(): Producto[] {
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+  }
+
+  private updateLocalStorage(cart: Producto[]) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 
   addToCart(product: Producto) {
     const currentCart = this.cart.value;
     const updatedCart = [...currentCart, product];
     this.cart.next(updatedCart);
+    this.updateLocalStorage(updatedCart);
   }
 
   removeFromCart(product: Producto) {
     const currentCart = this.cart.value;
     const updatedCart = currentCart.filter(item => item.id !== product.id);
     this.cart.next(updatedCart);
+    this.updateLocalStorage(updatedCart);
   }
 
   clearCart() {
     this.cart.next([]);
+    this.updateLocalStorage([]);
   }
 
   getCartTotal() {
@@ -34,4 +46,5 @@ export class CartService {
   getCartCount() {
     return this.cart.value.length;
   }
+  
 }

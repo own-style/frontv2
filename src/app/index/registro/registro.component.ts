@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { CuentasService } from '../../../services/cuentas.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-registro',
@@ -13,6 +14,7 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [ReactiveFormsModule,
             RouterLink,
             HeaderComponent,
+            SliderComponent,
           FooterComponent],
 
   templateUrl: './registro.component.html',

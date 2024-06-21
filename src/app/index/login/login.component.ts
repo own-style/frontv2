@@ -4,10 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { CuentasService } from '../../../services/cuentas.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-
-
-
-
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +12,8 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [ReactiveFormsModule,
             RouterLink,
             HeaderComponent,
-            FooterComponent
+            FooterComponent,
+            SliderComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
