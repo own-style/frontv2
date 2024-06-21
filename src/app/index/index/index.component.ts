@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { SliderComponent } from '../slider/slider.component';
+import { CarritoIndexComponent } from '../carrito-index/carrito-index.component';
 
 @Component({
   selector: 'app-index',
@@ -16,7 +17,8 @@ import { SliderComponent } from '../slider/slider.component';
             RouterLink,
             HeaderComponent,
             FooterComponent,
-            SliderComponent
+            SliderComponent,
+            CarritoIndexComponent,
             
   ],
   templateUrl: './index.component.html',
