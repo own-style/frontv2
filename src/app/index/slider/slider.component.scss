@@ -1,0 +1,41 @@
+.slider {
+    width: 100%;
+    height: 75px; /* Ajustar la altura para que las imágenes sean visibles */
+    border: 1px solid black; /* Agregar un borde para visualizar el contenedor */
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider .slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+    width: calc(200px * 24); /* Doble el número de diapositivas (12 originales + 12 duplicadas) */
+}
+
+.slider .slide {
+    height: 70px; /* Ajustar la altura para que coincida con la altura del contenedor */
+    width: 100px;
+    background-position: center;
+    background-size: cover;    
+}
+
+.slide{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img.jpg);
+    background-position: center;
+    background-size: cover;    
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-200px * 12)); /* Desplazar por el ancho de las 12 diapositivas originales */
+        transform: translateX(calc(-200px * 12));
+    }
+}

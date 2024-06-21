@@ -78,16 +78,15 @@ export class CrearProductosComponent implements OnInit {
             text: '¡Producto creado con éxito!'
           });
           this.crearProductoForm.reset();
-          this.selectedFile = null; // Reset the selected file
-          this.productoCreado.emit(); // Emit the event to inform that a product was created
-          this.mat.close();
+          this.selectedFile = null; 
+          this.productoCreado.emit(); 
                     
         },
         error: (err) => {
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: err.error.message // Mostrar el mensaje de error devuelto por el servidor
+            text: err.error.message 
           });
         }
       });
