@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../../interfaces/producto';
 import { ProductosService } from '../../../services/productos.service';
+import { CartService } from '../../../services/carrito.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,10 @@ export class ProductListComponent implements OnInit{
   
   productos: Producto[] = [];
 
-  constructor(private productosService: ProductosService) {}
+  constructor(private productosService: ProductosService,
+              private cartService: CartService,
+
+  ) {}
 
   ngOnInit(): void {
     this.productosService.getProductos().subscribe({
@@ -25,6 +29,9 @@ export class ProductListComponent implements OnInit{
         console.error('Error al obtener los productos', err);
       }
     });
+  }
+  addToCart(producto: Producto) {
+    this.cartService.addToCart(producto);
   }
 
 }

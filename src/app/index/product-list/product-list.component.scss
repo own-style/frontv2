@@ -5,6 +5,20 @@
     
     background-color: rgb(156, 156, 156);
   }
+  .button {
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: gray;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: purple;
+    }
+  }
   .rectangulo {
     margin-top: 50px;
     width: 450px;
