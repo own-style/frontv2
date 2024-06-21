@@ -60,7 +60,6 @@ export class ClientesComponent implements OnInit{
       this.get();
     });
   }
-
   
   editarCliente(id: number): void {
     const dialogRef = this.dialog.open(EditarClientesComponent,{
@@ -89,9 +88,9 @@ export class ClientesComponent implements OnInit{
           next: () => {
             Swal.fire({
               icon: 'success',
-              title: 'Producto eliminado',
+              title: 'Cliente eliminado',
               timer: 1500,
-              text: '¡Producto eliminado con éxito!'
+              text: 'Cliente eliminado con éxito!'
             });
             this.get(); // Recargar lista de productos o actualizar vista
           },

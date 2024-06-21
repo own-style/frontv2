@@ -89,6 +89,5 @@ export class EditarClientesComponent implements OnInit{
         text: 'Por favor complete todos los campos correctamente'
       });
     }
-  }
-  
+  }  
 }
