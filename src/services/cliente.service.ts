@@ -15,11 +15,19 @@ export class ClienteService {
     private http:HttpClient
   ) { }
 
-
-
   getClientes():Observable<cliente[]>{
-    return this.http.get<cliente[]>(this.baseUrl)
+    return this.http.get<cliente[]>(this.baseUrl);
   }
+  getClienteById(id:number):Observable<any>{
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+  deleteClients(id:number):Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+  updateCliente(id: number, cliente: cliente): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, cliente);
+  }
+  
 
 
 }

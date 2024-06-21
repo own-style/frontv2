@@ -34,6 +34,7 @@ export class RegistroComponent implements OnInit{
       lastName: ['',Validators.required],
       dni: ['',Validators.required],
       telefono: ['',Validators.required],
+      direccion:['',Validators.required],
       email: ['',Validators.required],
       username: ['',Validators.required],
       password: ['',Validators.required]
@@ -48,6 +49,7 @@ export class RegistroComponent implements OnInit{
       apellido: this.registerForm.value.lastName,
       dni: this.registerForm.value.dni,
       telefono: this.registerForm.value.telefono,
+      direccion: this.registerForm.value.direccion,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password
     };
