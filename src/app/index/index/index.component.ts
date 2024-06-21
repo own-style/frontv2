@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-index',
@@ -15,6 +16,7 @@ import { FooterComponent } from '../footer/footer.component';
             RouterLink,
             HeaderComponent,
             FooterComponent,
+            SliderComponent
             
   ],
   templateUrl: './index.component.html',
