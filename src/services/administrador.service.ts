@@ -19,17 +19,20 @@ export class AdministradorService {
   getAdministradores():Observable<Administrador[]>{
     return this.http.get<Administrador[]>(this.baseUrl)
   }
+  getAdministradorById(id:number):Observable<any>{
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
 
-  crear(administrador:Administrador):Observable<Administrador>{
-    return this.http.post<Administrador>(environment.apiUrl+"/administradores", administrador);
+  crear(administrador: Administrador): Observable<void> {
+    return this.http.post<void>(this.baseUrl, administrador);
   }
   
   editar(idAdministrador:number, administradorModificado:Administrador):Observable<Administrador>{
     return this.http.put<Administrador>(`${this.baseUrl}/${idAdministrador}`, administradorModificado)
   }
-
-  eliminar(id:number):Observable<void>{
-    return this.http.delete<void>(this.baseUrl+"/"+id)
+  
+  eliminar(id:number):Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
 }

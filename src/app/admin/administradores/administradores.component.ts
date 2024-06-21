@@ -6,6 +6,10 @@ import { Administrador } from '../../../interfaces/administrador';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CrearAdministradoresComponent } from '../dialogs/crear-administradores/crear-administradores.component';
+import { EditarAdministradorComponent } from '../dialogs/editar-administrador/editar-administrador.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-administradores',
@@ -13,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [  
             MatTableModule,
             MatIconModule, 
-            ReactiveFormsModule,                         
+            ReactiveFormsModule,                                
           ],
   templateUrl: './administradores.component.html',
   styleUrl: './administradores.component.scss'
@@ -29,7 +33,9 @@ export class AdministradoresComponent implements OnInit{
   
   
   constructor(    
-    private administradorService: AdministradorService){      
+    private administradorService: AdministradorService,
+    private dialog : MatDialog)
+    {      
       this.dataSource = new MatTableDataSource();      
     }
     
@@ -37,11 +43,9 @@ export class AdministradoresComponent implements OnInit{
       this.get();
     }
     
-    ngAfterViewInit(): void {
-      
+    ngAfterViewInit(): void {      
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      
+      this.dataSource.sort = this.sort;      
     }
     
     get():void{
@@ -51,13 +55,57 @@ export class AdministradoresComponent implements OnInit{
         }
       })                
     }    
+
+    openCrearDialog():void{
+      const dialogRef = this.dialog.open(CrearAdministradoresComponent);
+      dialogRef.componentInstance.administradorCreado.subscribe(() => {
+        this.get();
+      })
+    }
           
-    editar() {    
-    }    
-    crear() {
-    }
-    eliminar() {
-    }
+    editarAdministrador(id: number): void {
+      const dialogRef = this.dialog.open(EditarAdministradorComponent,{
+        data: { id: id }
+      });  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.get(); 
+        }
+      })
+    }       
+    eliminarAdministrador(id: number): void {
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¡No podrás revertir esto!',
+        icon: 'error',      
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, borrar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.administradorService.eliminar(id).subscribe({
+            next: () => {
+              Swal.fire({
+                icon: 'success',
+                title: 'Administrador eliminado',
+                timer: 1500,
+                text: 'Administrador eliminado con éxito!'
+              });
+              this.get(); // Recargar lista de productos o actualizar vista
+            },
+            error: (err) => {
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: err.error.message
+              });
+            }
+          });
+        }
+      });
+    } 
 
 
 
