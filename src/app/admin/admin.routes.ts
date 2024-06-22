@@ -5,7 +5,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { AdministradoresComponent } from './administradores/administradores.component';
 import { NgModule } from '@angular/core';
 import { routes } from '../app.routes';
-import { authGuard } from '../guards/auth.guard';
+
 
 
 export const ADMIN_ROUTES: Routes = [
@@ -14,14 +14,7 @@ export const ADMIN_ROUTES: Routes = [
     {path:'dashboard', component:DashboardComponent},    
     {path:'administradores', component:AdministradoresComponent},
     {path:'clientes', component:ClientesComponent},
-    {path:'productos', component:ProductosComponent},
-
-    
+    {path:'productos', component:ProductosComponent},        
     
 ];
 
-@NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-  })
-  export class AdminRoutingModule { }
