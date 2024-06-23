@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div class="product-details-container" *ngIf="productos">
+    <h2>{{ productos.nombre }}</h2>
+    <img [src]="productos.imagenUrl" alt="{{ productos.nombre }}" class="product-details-image">
+    <p>{{ productos.descripcion }}</p>
+    <p>Precio: {{ productos.precio | currency }}</p>    
+  </div>
+
+<app-footer></app-footer>
+  
