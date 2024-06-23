@@ -1,6 +1,6 @@
 <div class="contenedor-rectangulos">
     <div *ngFor="let producto of productos" class="rectangulo">
-      <img [src]="producto.imagenUrl" alt="{{producto.nombre}}" width="100%">
+      <img [src]="producto.imagenUrl" (click)="verDetalles(producto.id)" alt="{{producto.nombre}}" width="100%">
       <h3>{{producto.nombre}}</h3>
       <p>{{producto.descripcion}}</p>
       <p>Precio: {{producto.precio | currency}}</p>

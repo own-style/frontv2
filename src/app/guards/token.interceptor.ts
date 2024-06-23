@@ -26,8 +26,7 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((err: any) => {
         if (err instanceof HttpErrorResponse) {
-          if (err.status === 401) {
-            
+          if (err.status === 401) {            
             Swal.fire({
               icon: 'warning',
               title: 'El token ha expirado',
