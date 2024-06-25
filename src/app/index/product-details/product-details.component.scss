@@ -1,9 +1,11 @@
 /* product-details.component.scss */
 .product-details-container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 30em;
+    margin: 3em auto;
     padding: 16px;
     text-align: center;
+    background-color: rgb(189, 189, 189);
+    border-radius: 15px;
   }
   
   .product-details-image {
