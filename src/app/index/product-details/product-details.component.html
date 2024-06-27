@@ -4,6 +4,7 @@
     <img [src]="productos.imagenUrl" alt="{{ productos.nombre }}" class="product-details-image">
     <p>{{ productos.descripcion }}</p>
     <p>Precio: {{ productos.precio | currency }}</p>    
+    <button  class="button"  (click)="addToCart(productos)">Agregar al Carrito</button>
   </div>
 
 <app-footer></app-footer>
