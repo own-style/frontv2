@@ -5,6 +5,8 @@ import { ProductosService } from '../../../services/productos.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { Producto } from '../../../interfaces/producto';
+import { CartService } from '../../../services/carrito.service';
 
 
 @Component({
@@ -18,11 +20,12 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  productos: any;
+  productos : any;
 
   constructor(
     private route: ActivatedRoute,
-    private productosService: ProductosService
+    private productosService: ProductosService,
+    private cartService:CartService
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +40,9 @@ export class ProductDetailsComponent implements OnInit {
     } else {
       console.error('No product ID found in the route');      
     }
+  }
+  addToCart(producto: Producto) {
+    this.cartService.addToCart(producto);
   }
 
 }
