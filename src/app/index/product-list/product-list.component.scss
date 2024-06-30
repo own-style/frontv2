@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     
+    
     background-color: rgb(156, 156, 156);
   }
   .button {
@@ -10,7 +11,7 @@
     padding: 5px 10px;
     background-color: gray;
     border: none;
-    color: white;
+    color: black;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -35,6 +36,12 @@
     
   }
   
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
 
   
   
@@ -43,3 +50,7 @@
     height: auto;
   }
   
+
+.product-info {
+  margin-top: 16px;
+}

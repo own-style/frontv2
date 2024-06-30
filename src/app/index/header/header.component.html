@@ -1,8 +1,8 @@
 <header>
     <div class="navbar">          
         <div routerLink="" class="imglogo"></div>  
-        <h1 routerLink="admin" >dashboard</h1>
-        <h1 routerLink="/login" >log</h1>
+        <!-- <h1 routerLink="admin" >dashboard</h1>
+        <h1 routerLink="/login" >log</h1> -->
   
         <div class="itemsNav">
   
@@ -18,12 +18,13 @@
             <span class="cart-count">{{ cartCount }}</span>
           </div>
           
-          <mat-icon class="mat-icon-xl" routerLink="home" >home</mat-icon>
+          <mat-icon class="mat-icon-xl" routerLink="" >home</mat-icon>
           <mat-icon class="mat-icon-xl" >favorite_border</mat-icon>
-          <mat-icon class="mat-icon-xl" routerLink="/login" >person</mat-icon>
+          <mat-icon class="mat-icon-xl" (click)="redirectToProfile()">person</mat-icon>
+          <mat-icon class="mat-icon-xl" (click)="logout()">logout</mat-icon> <!-- Nuevo icono de logout -->
+
           
-        </div>
-  
+        </div>  
       </div>
       
   </header>

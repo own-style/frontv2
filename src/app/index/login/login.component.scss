@@ -2,19 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: 48em;
   }
-  
-  
   
   /* Estilos para el contenedor del formulario */
   .contenedor {
-    height: 500px;
-    width: 400px;
+    height: 34em;
+    width: 25em;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #ccc;
   }
   
   /* Estilos para el título del formulario */
@@ -27,21 +25,17 @@
   /* Estilos para los campos de entrada */
   .input-field {
     position: relative;
-    height: 100px;
+    margin-top: 2.5em;    
+    
   }
-  
-  .input-container {
-    position: relative;
-  }
-  
+    
   .input-container input {
     width: calc(100% - 35px);
-    padding: 8px;
-    padding-left: 35px; /* Ajusta el padding izquierdo para dar espacio al ícono */
+    padding: 8px;    
     margin-bottom: 10px;
   }
   
-  .input-container .fa {
+  .input-container .fa {  
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -53,12 +47,14 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 20px; /* Ajusta la posición del ícono "eye slash" */
+    
     cursor: pointer;
   }
   
   /* Estilos para el enlace de "Olvidaste tu contraseña?" */
   .asd2 {
+    font-size: 1.1em;
+    margin: 2em;
     text-align: center;
     margin-bottom: 10px;
   }
@@ -69,20 +65,20 @@
     padding: 10px;
     border: none;
     border-radius: 3px;
-    background-color: #007bff;
+    background-color: purple;
     color: #fff;
     cursor: pointer;
     margin-top: 10px;
   }
   
   .btn:hover {
-    background-color: #0056b3;
+    background-color: #711cfa;
   }
   
   /* Estilos para el texto "No tienes cuenta?" */
   .text-center {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 2em;
   }
   
   .text-center a {

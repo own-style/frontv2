@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Producto } from '../interfaces/producto';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class CartService {
     const updatedCart = [...currentCart, product];
     this.cart.next(updatedCart);
     this.updateLocalStorage(updatedCart);
+    Swal.fire('Ok!', 'Producto agregado al carrito.', 'success');
   }
 
   removeFromCart(product: Producto) {
