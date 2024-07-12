@@ -32,8 +32,8 @@ export class CuentasService {
     return this.http.post<Credentials>(this.baseUrl + 'login', Credentials).pipe(map((res) => 
         { 
           this.datosCredentials.next(res);
-          localStorage.setItem('credenciales', JSON.stringify(res));
-          localStorage.setItem('token', res.token); // Guarda el token aquí
+          // localStorage.setItem('credenciales', JSON.stringify(res));
+          localStorage.setItem('token', res.token); 
           return res;
         })
       );
