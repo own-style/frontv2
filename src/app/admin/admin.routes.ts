@@ -1,10 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ProductosComponent } from './productos/productos.component';
 import { AdministradoresComponent } from './administradores/administradores.component';
-import { NgModule } from '@angular/core';
-import { routes } from '../app.routes';
+
 
 
 
