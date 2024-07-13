@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { SliderComponent } from '../slider/slider.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito-index',
@@ -22,7 +23,9 @@ export class CarritoIndexComponent {
   cartItems: Producto[] = [];
   total = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.cartService.cart$.subscribe(items => {
@@ -33,6 +36,10 @@ export class CarritoIndexComponent {
 
   removeFromCart(product: Producto) {
     this.cartService.removeFromCart(product);
+  }
+
+  goToCheckout() {
+    this.router.navigate(['checkout']);
   }
 
 }

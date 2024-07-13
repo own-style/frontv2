@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="checkout-container">
+  <h2>Pago</h2>
+
+  <form id="form-checkout" (submit)="pagar()">
+    <div class="form-group">
+      <label for="form-checkout__cardholderName">Titular de la tarjeta</label>
+      <input type="text" id="form-checkout__cardholderName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__cardholderEmail">E-mail</label>
+      <input type="email" id="form-checkout__cardholderEmail" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__cardNumber">Número de la tarjeta</label>
+      <input type="text" id="form-checkout__cardNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__cardExpirationDate">MM/YY</label>
+      <input type="text" id="form-checkout__cardExpirationDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__securityCode">Código de seguridad</label>
+      <input type="text" id="form-checkout__securityCode" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__installments">Cuotas</label>
+      <input type="text" id="form-checkout__installments" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__identificationType">Tipo de documento</label>
+      <input type="text" id="form-checkout__identificationType" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__identificationNumber">Número de documento</label>
+      <input type="text" id="form-checkout__identificationNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="form-checkout__issuer">Banco emisor</label>
+      <input type="text" id="form-checkout__issuer" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Pagar</button>
+  </form>
+</div>
+<div class="relleno">
+
+</div>
+
+<app-footer></app-footer>

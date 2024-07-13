@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 export class CartService {
   private cart = new BehaviorSubject<Producto[]>(this.getCartFromLocalStorage());
   cart$ = this.cart.asObservable();
+  private items = [];
+
 
   constructor() {}
 
@@ -43,6 +45,10 @@ export class CartService {
 
   getCartTotal() {
     return this.cart.value.reduce((total, product) => total + product.precio, 0);
+  }
+
+  getItems() {
+    return this.items;
   }
 
   getCartCount() {
