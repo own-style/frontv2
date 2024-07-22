@@ -62,6 +62,8 @@ export class CuentasService {
     this.router.navigate([ruta]);
   }
 
+  
+
   isAdmin(): boolean {
     const token = this.getToken();
     if (!token) 
