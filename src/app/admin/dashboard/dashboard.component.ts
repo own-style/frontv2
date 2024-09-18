@@ -35,6 +35,7 @@ import { CuentasService } from '../../../services/cuentas.service';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit{
+  
   @ViewChild(MatSidenav, {static: true})
   sidenav!:MatSidenav;
   selectedOption: string = '';

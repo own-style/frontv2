@@ -1,65 +1,51 @@
-<app-slider></app-slider>
-<app-header></app-header>
 <div class="contenedorbig">
   <div class="contenedor">
     <h2>Registrarse</h2>
-
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
-      
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">       
       <div class="input-field">
         <div class="input-container">
           <input formControlName="firstName" placeholder="Nombre" required>          
         </div>
       </div>
-
       <div class="input-field">
         <div class="input-container">
           <input formControlName="lastName" placeholder="Apellido" required>          
         </div>
       </div>
-
       <div class="input-field">
         <div class="input-container">
           <input formControlName="dni" placeholder="DNI" required>          
         </div>
       </div>
-
       <div class="input-field">
         <div class="input-container">
-          <input formControlName="telefono" placeholder="N° TELEFONO" required>          
+          <input formControlName="telefono" placeholder="N° Telefono" required>          
         </div>
       </div>
-
       <div class="input-field">
         <div class="input-container">
           <input formControlName="email" placeholder="Email" required>          
         </div>
       </div>
-
       <div class="input-field">
         <div class="input-container">
-          <input formControlName="direccion" placeholder="Direccion" required>          
+          <input formControlName="direccion" placeholder="Dirección" required>          
         </div>
       </div>
-
       <div class="input-field">
         <div class="input-container">
-          <input formControlName="username" placeholder="Username" required>          
+          <input formControlName="username" placeholder="Nombre de Usuario" required>          
         </div>
-      </div>
-    
+      </div>    
       <div class="input-field">
         <div class="input-container">
-          <input formControlName="password" type="password" placeholder="Password" required>          
+          <input formControlName="password" type="password" placeholder="Contraseña" required>          
         </div>
-      </div>
-    
-      <button type="submit" class="btn btn-secondary">Registrarse</button>
-      
+      </div>    
+      <button type="submit" class="btn btn-secondary">Registrarse</button>      
       <div class="text-center">Ya tienes una cuenta?
         <a routerLink="/login">Inicia Sesión</a>
       </div>
     </form>
   </div>
 </div>
-<app-footer></app-footer>

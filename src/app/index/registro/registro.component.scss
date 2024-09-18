@@ -2,60 +2,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  
 }
 
 .contenedor {
-  width: 400px;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 57em;
+  width: 25em;  
+  padding: 3em;
+  margin: 2em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ccc;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .input-field {
-  margin-bottom: 15px;
-}
-
-.input-container {
   position: relative;
+  margin-top: 2.5em;    
+  
 }
-
+  
 .input-container input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
+  width: calc(100% - 35px);
+  padding: 8px;    
+  margin-bottom: 10px;
 }
 
-.input-container .fa {
+.input-container .fa {  
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 10px;
-  color: #888;
+  left: 10px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  cursor: pointer;
+}
+
+.asd2 {
+  font-size: 1.1em;
+  margin: 2em;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .btn {
-  display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
+  background-color: purple;
+  color: #fff;
   cursor: pointer;
-  outline: none;
+  margin-top: 10px;
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #711cfa;
 }
 
 .text-center {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 2em;
 }
 
 .text-center a {

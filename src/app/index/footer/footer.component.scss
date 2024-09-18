@@ -9,7 +9,6 @@
     justify-content: space-evenly;
     align-items: start;
     
-
     height: auto;
     font-size: 25px;
 
@@ -55,24 +54,22 @@
 .redes a {
     display: block;
     text-decoration: none;
-    color: #000; /* Color del texto */
+    color: #000; 
     
-    padding: 5px 0; /* Espacio alrededor del enlace */
+    padding: 5px 0; 
 }
 
 .redes a:hover {
-    background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+    background-color: #f0f0f0;
 }
 
 .decoracion {
     border: none;
-    border-top: 1px solid gray; /* Color y grosor de la línea */
+    border-top: 1px solid gray; 
     
-    margin-top: 10px; /* Espacio entre la lista y la decoración */
+    margin-top: 10px; 
 }
 
-
-/* Consultas de medios para ajustar estilos en pantallas más pequeñas */
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column;

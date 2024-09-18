@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './index/header/header.component';
 import { FooterComponent } from './index/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { SliderComponent } from './index/slider/slider.component';
 
 
 
@@ -16,6 +17,7 @@ import { CommonModule } from '@angular/common';
     RouterLink,
     HeaderComponent,
     FooterComponent,
+    SliderComponent
     
   ],
   templateUrl: './app.component.html',
