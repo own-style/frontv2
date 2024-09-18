@@ -1,6 +1,6 @@
 // product-details.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductosService } from '../../../services/productos.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
@@ -15,6 +15,7 @@ import { CartService } from '../../../services/carrito.service';
   imports:[CommonModule,
            HeaderComponent,
            FooterComponent,
+           RouterModule,
   ],
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
